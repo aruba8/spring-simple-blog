@@ -2,6 +2,7 @@ package com.blog.utils;
 
 import com.blog.model.Article;
 import com.blog.model.Tag;
+import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Component
 public class ArticleHandlerImpl implements ArticleHandler {
     private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
@@ -33,7 +35,10 @@ public class ArticleHandlerImpl implements ArticleHandler {
             } else if (aSplitHead.startsWith("Categories:")){
                 tagNames = aSplitHead.replace("Categories:", "").split(",");
                 for (String tagName : tagNames){
-                    tagSet.add(new Tag(tagName));
+                    Tag tag = new Tag(tagName.trim().toLowerCase());
+                    if (!tagSet.contains(tag)){
+                        tagSet.add(tag);
+                    }
                 }
             }
         }

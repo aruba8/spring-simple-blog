@@ -19,7 +19,7 @@ public class TagRepositoryImpl implements TagRepository{
         Session session = sessionFactory.openSession();
         session.getTransaction().begin();
         for (Tag tag : tags){
-            session.save(tag);
+            session.saveOrUpdate(tag);
         }
         session.getTransaction().commit();
     }
@@ -28,7 +28,7 @@ public class TagRepositoryImpl implements TagRepository{
     public void save(Tag tag) {
         Session session = sessionFactory.openSession();
         session.getTransaction().begin();
-        session.save(tag);
+        session.saveOrUpdate(tag);
         session.getTransaction().commit();
     }
 }

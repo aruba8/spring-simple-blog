@@ -16,7 +16,7 @@ public class Article {
     @JoinColumn(name = "user_id", nullable = false)
     private User author;
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false, unique = true)
     private String title;
 
     @Column(name = "articleBody", length = 5000)

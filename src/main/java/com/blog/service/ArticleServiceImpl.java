@@ -1,7 +1,9 @@
 package com.blog.service;
 
 import com.blog.model.Article;
+import com.blog.model.Tag;
 import com.blog.repositories.ArticleRepository;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,14 +27,18 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public List<Article> getArticleList() {
-        return articleRepository.findAll();
+    public List<Article> getArticleList(int last) {
+        return articleRepository.findAll(last);
     }
 
     @Override
-    public void saveArticle(Article article) {
+    public List<Article> getArticlesByTag(Tag tag) {
+        return articleRepository.findAllByTag(tag);
+    }
 
-
+    @Override
+    public void saveArticle(Article article) throws ConstraintViolationException{
+        articleRepository.save(article);
     }
 
     @Override

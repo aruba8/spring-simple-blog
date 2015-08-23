@@ -6,9 +6,8 @@ import java.util.Set;
 @Entity
 @Table(name = "tag")
 public class Tag {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     @Column(name = "name", unique = true)
     private String name;
     @ManyToMany(
@@ -31,9 +30,6 @@ public class Tag {
 
     public Tag(){}
 
-    public Long getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -45,7 +41,21 @@ public class Tag {
 
 
     public String toString(){
-        return "Tag [id="+id+", name="+name+"]";
+        return "Tag [name="+name+"]";
     }
 
+    @Override
+    public int hashCode() {
+        return 37 * name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof Tag)){
+            return false;
+        }
+
+        Tag tag = (Tag) obj;
+        return tag.getName().equals(this.getName());
+    }
 }
