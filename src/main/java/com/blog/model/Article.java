@@ -1,9 +1,7 @@
 package com.blog.model;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "article")
@@ -38,6 +36,10 @@ public class Article {
             inverseJoinColumns = {@JoinColumn(name = "tag_id")}
     )
     private Set<Tag> tags = new HashSet<Tag>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "article")
+    @OrderBy("dateTime")
+    private List<Comment> comments = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -93,5 +95,13 @@ public class Article {
 
     public Set<Tag> getTags() {
         return tags;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

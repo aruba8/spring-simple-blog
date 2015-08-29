@@ -1,7 +1,9 @@
 package com.blog.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,6 +14,10 @@ public class User {
     private Long id;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     private Set<Article> articles = new HashSet<Article>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+    private List<Comment> comments = new ArrayList<>();
+
     @Column(name = "name")
     private String name;
     @Column(name = "surname")

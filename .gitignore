@@ -64,4 +64,6 @@ hs_err_pid*
 
 /target
 
-
+#front
+node_modules
+bower_components

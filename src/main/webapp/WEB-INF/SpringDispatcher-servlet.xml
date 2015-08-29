@@ -35,6 +35,7 @@
                 <value>com.blog.model.Role</value>
                 <value>com.blog.model.Article</value>
                 <value>com.blog.model.Tag</value>
+                <value>com.blog.model.Comment</value>
             </list>
         </property>
         <property name="hibernateProperties">

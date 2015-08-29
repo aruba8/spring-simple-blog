@@ -6,10 +6,10 @@
 
     <definition name="DefaultTemplate"
                 template="/WEB-INF/views/template/SiteTemplate.jsp">
-        <put-attribute name="title" 	value="Home" />
-        <put-attribute name="header" 	value="/WEB-INF/views/template/header.jsp" />
-        <put-attribute name="body" 		value="" />
-        <put-attribute name="footer" 	value="/WEB-INF/views/template/footer.jsp" />
+        <put-attribute name="title" value="Home"/>
+        <put-attribute name="header" value="/WEB-INF/views/template/header.jsp"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp"/>
     </definition>
 
 </tiles-definitions>

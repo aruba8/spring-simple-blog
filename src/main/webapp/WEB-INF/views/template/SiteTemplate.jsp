@@ -7,20 +7,26 @@
 <head>
     <title>Blog</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="stylesheet" href="<c:url value="/resources/style.css"/>"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-    <script type="application/javascript" src="<c:url value="/resources/hallo.js" />"></script>
+    <link rel="stylesheet" href="<c:url value="/resources/css/main.css"/>"/>
+    <script src="<c:url value="/resources/js/main.js"/>"></script>
 </head>
 <body>
+<div class="wrapper">
+    <!-- Header -->
+    <title:insertAttribute name="header"/>
 
-<!-- Header -->
-<title:insertAttribute name="header"/>
+    <!-- Body -->
 
-<!-- Body -->
-<tiles:insertAttribute name="body" />
+    <div class="content">
+        <tiles:insertAttribute name="content"/>
+    </div>
 
-<!-- Footer -->
-<tiles:insertAttribute name="footer" />
+    <!-- Footer -->
+
+    <div class="footer">
+        <tiles:insertAttribute name="footer"/>
+    </div>
+
+</div>
 </body>
 </html>

@@ -1,0 +1,22 @@
+{
+  "name": "spring-simple-blog",
+  "version": "1.0.0",
+  "authors": [
+    "Erik Khalimov <biomaks@gmail.com>"
+  ],
+  "description": "simple blog  written using spring",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlightjs": "~8.7.0",
+    "jquery": "2.*",
+    "jquery-ui": "1.11.*",
+    "normalize.css": "*"
+  }
+}

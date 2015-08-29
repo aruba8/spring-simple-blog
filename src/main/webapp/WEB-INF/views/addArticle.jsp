@@ -11,9 +11,3 @@ Comments:true
 </textarea>
   <input type="submit" name="submit" value="submit" />
 </form:form>
-
-<script>
-  $().ready(function () {
-    $('p').hallo();
-  });
-</script>
