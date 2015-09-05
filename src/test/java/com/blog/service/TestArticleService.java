@@ -18,7 +18,6 @@ public class TestArticleService {
 
     @Mock
     ArticleRepository articleRepository;
-
     ArticleService articleService;
 
     @BeforeClass
