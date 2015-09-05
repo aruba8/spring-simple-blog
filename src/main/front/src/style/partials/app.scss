@@ -150,9 +150,8 @@ a.edit {
 
 .pagination {
   margin-top: 20px;
-  padding-top: 25px;
-  padding-bottom: 5px;
-  position: relative;
+  padding-top: 15px;
+  padding-bottom: 25px;
   border-top: solid;
 }
 
@@ -161,9 +160,12 @@ a.edit {
   margin-bottom: 10px;
   padding-bottom: 10px;
   display: inline;
-  position: absolute;
 }
 
 .pagination .right_arrows {
-  right: 0;
+  float: right;
+}
+
+.pagination .left_arrows {
+  float: left;
 }

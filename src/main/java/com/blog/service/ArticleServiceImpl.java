@@ -15,6 +15,10 @@ public class ArticleServiceImpl implements ArticleService{
     @Autowired
     private ArticleRepository articleRepository;
 
+    public ArticleServiceImpl(ArticleRepository articleRepository){
+        this.articleRepository = articleRepository;
+    }
+
 
     @Override
     public Article getArticleById(Long id) {
