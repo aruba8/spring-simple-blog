@@ -14,10 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -45,8 +42,20 @@ public class ArticleController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String listArticles(ModelMap model) {
-        model.addAttribute("articleList", articleService.getArticleList(10));
+    public String listArticles(@RequestParam(value = "p", required = false) String pages, ModelMap model) {
+        int currentPage;
+        int articlesPerPage = 5;
+        int maxNumberOfPages = articleService.getMaxNumberOfPages(articlesPerPage);
+        if (pages == null) {
+            currentPage = 1;
+            model.addAttribute("articleList", articleService.getArticleListAndSkip(articlesPerPage, currentPage));
+            model.addAttribute("currentPage", currentPage);
+        } else {
+            currentPage = Integer.parseInt(pages);
+            model.addAttribute("articleList", articleService.getArticleListAndSkip(articlesPerPage, currentPage));
+            model.addAttribute("currentPage", currentPage);
+        }
+        model.addAttribute("maxNumberOfPages", maxNumberOfPages);
         return "index";
     }
 
@@ -97,5 +106,4 @@ public class ArticleController {
 
         return "tag";
     }
-
 }

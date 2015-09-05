@@ -1,4 +1,3 @@
-@import "http://webfonts.ru/import/anonym.css";
 html {
   height: 100%;
 }
@@ -9,7 +8,7 @@ body {
   margin: 0 auto;
   min-height: 100%;
   background-color: #FFFAF0;
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-family: "jaf-bernino-sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   overflow-wrap: break-word;
   text-align: justify;
 
@@ -34,7 +33,6 @@ h3 {
   font-size: 0.8em;
   padding-bottom: 15px;
 
-
 }
 
 .title {
@@ -53,7 +51,7 @@ h3 {
 
 }
 
-* html #content{
+* html #content {
   height: 100%;
 }
 
@@ -65,7 +63,6 @@ h3 {
 .nav {
   text-align: center;
 }
-
 
 p div {
   background-color: #DDDDDD;
@@ -94,7 +91,7 @@ textarea#article-body {
   text-align: justify;
 }
 
-.post-info, .post-info li a{
+.post-info, .post-info li a {
   list-style: none;
   list-style-image: none;
   color: #999999;
@@ -120,7 +117,7 @@ ul.post-info {
   display: inline;
 }
 
-#nav ul{
+#nav ul {
   padding: 0;
   margin: 0 auto;
 }
@@ -129,15 +126,13 @@ a.edit {
   color: red;
 }
 
-
-
 .wrapper {
   position: relative;
   min-height: 100%;
 }
 
-
 .footer {
+  padding-top: 15px;
   position: absolute;
   text-align: center;
   bottom: 0;
@@ -151,4 +146,24 @@ a.edit {
 
 .hljs {
   background: #FFFAF0;
+}
+
+.pagination {
+  margin-top: 20px;
+  padding-top: 25px;
+  padding-bottom: 5px;
+  position: relative;
+  border-top: solid;
+}
+
+.pagination .right_arrows, .pagination .left_arrows {
+  top: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  display: inline;
+  position: absolute;
+}
+
+.pagination .right_arrows {
+  right: 0;
 }

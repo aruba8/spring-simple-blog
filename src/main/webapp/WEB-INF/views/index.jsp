@@ -1,6 +1,7 @@
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <div class="login_block">
     <c:choose>
         <c:when test="${pageContext.request.userPrincipal.authenticated}">
@@ -37,3 +38,17 @@
         </ul>
     </div>
 </c:forEach>
+
+<div class="pagination">
+    <div class="left_arrows"><c:if test="${currentPage > 2}">
+        <a href="?p=${currentPage-1}"> << </a>
+    </c:if>
+    <c:if test="${currentPage == 2}">
+        <a href="/"> << </a>
+    </c:if></div>
+    <c:if test="${maxNumberOfPages > currentPage}">
+        <div class="right_arrows">
+            <a href="?p=${currentPage+1}"> >> </a>
+        </div>
+    </c:if>
+</div>

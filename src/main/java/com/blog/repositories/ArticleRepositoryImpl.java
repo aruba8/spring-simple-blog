@@ -31,9 +31,15 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public List<Article> findAll(int last) {
+    public List<Article> findAll() {
         Session session = sessionFactory.openSession();
-        return session.createCriteria(Article.class).addOrder(Order.desc("dateTime")).setMaxResults(last).list();
+        return session.createCriteria(Article.class).list();
+    }
+
+    @Override
+    public List<Article> findAllAndSkip(int pageSize, int page) {
+        Session session = sessionFactory.openSession();
+        return session.createCriteria(Article.class).addOrder(Order.desc("dateTime")).setFirstResult((page-1)*pageSize).setMaxResults(pageSize).list();
     }
 
     @Override

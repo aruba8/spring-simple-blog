@@ -27,8 +27,13 @@ public class ArticleServiceImpl implements ArticleService{
     }
 
     @Override
-    public List<Article> getArticleList(int last) {
-        return articleRepository.findAll(last);
+    public List<Article> getArticleList() {
+        return articleRepository.findAll();
+    }
+
+    @Override
+    public List<Article> getArticleListAndSkip(int pageSize, int page) {
+        return articleRepository.findAllAndSkip(pageSize, page);
     }
 
     @Override
@@ -39,6 +44,16 @@ public class ArticleServiceImpl implements ArticleService{
     @Override
     public void saveArticle(Article article) throws ConstraintViolationException{
         articleRepository.save(article);
+    }
+
+    @Override
+    public int getMaxNumberOfPages(int articlesPerPage) {
+        int numberOfArticles = articleRepository.findAll().size();
+        if (numberOfArticles%articlesPerPage == 0){
+            return numberOfArticles/articlesPerPage;
+        } else {
+            return numberOfArticles/articlesPerPage+1;
+        }
     }
 
     @Override
